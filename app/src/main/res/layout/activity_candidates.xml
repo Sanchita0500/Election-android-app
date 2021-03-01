@@ -7,32 +7,76 @@
     android:orientation="vertical"
     tools:context=".CandidatesActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/AppTheme">-->
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar_candidates"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="#0E1B65" >-->
+
+<!--            <ImageButton-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:onClick="goBack"-->
+<!--                android:src="@drawable/ic_baseline_arrow_back_24"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                />-->
+
+<!--        </androidx.appcompat.widget.Toolbar>-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <LinearLayout
+        android:gravity="center"
+        android:elevation="1dp"
+        android:background="#0E1B65"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme">
+        android:orientation="horizontal"
+        >
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_candidates"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#0E1B65" />
+        <ImageButton
+            android:onClick="goBack"
+            android:layout_margin="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/white"
+            />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#0E1B65"
-            app:tabIndicatorColor="@color/white"
-            app:tabTextColor="@color/white">
+            android:layout_weight="1"
+            android:padding="14dp"
+            android:text="candidates"
+            android:textAllCaps="true"
+            android:letterSpacing="0.2"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        </com.google.android.material.tabs.TabLayout>
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@android:color/transparent"
+            />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </LinearLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/personRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:listitem="@layout/voting_format">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

@@ -28,6 +28,7 @@ class ApplyActivity : AppCompatActivity() {
             intent.putExtra("name",username)
             intent.putExtra("post",element)
             startActivity(intent)
+            finish()
         }
     }
 }

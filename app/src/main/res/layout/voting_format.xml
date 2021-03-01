@@ -19,6 +19,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/candidate_post"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="candidate post" />

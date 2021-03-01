@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import com.example.election.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import nl.dionsegijn.konfetti.models.Shape
@@ -26,9 +27,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         val username = intent.getStringExtra("name")
-
-        val sound : MediaPlayer = MediaPlayer.create(this, R.raw.sad_game)
+        //val sound : MediaPlayer = MediaPlayer.create(this, R.raw.sad_game)
         val drawerToggle = ActionBarDrawerToggle(this, binding.drawer, binding.toolbar, R.string.open, R.string.close)
+        val musicIntent = Intent(this,MediaService::class.java)
+
         binding.drawer.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -36,7 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.voteButton.setOnClickListener {
 
-            sound.start()
+            binding.voteButton.isVisible = false
+            binding.pauseButton.isVisible = true
+            startService(musicIntent)
 
             binding.konfetti.build()
                 .addColors(Color.RED, Color.BLUE, Color.BLACK)
@@ -49,6 +53,13 @@ class MainActivity : AppCompatActivity() {
                 .setPosition(-50f, binding.konfetti.width + 50f, -50f, -50f)
                 .streamFor(300, 5000L)
 
+        }
+
+        binding.pauseButton.setOnClickListener {
+
+            binding.pauseButton.isVisible = false
+            binding.voteButton.isVisible = true
+            stopService(musicIntent)
         }
 
         binding.navView.setNavigationItemSelectedListener { menuItem ->

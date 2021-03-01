@@ -1,14 +1,16 @@
 package com.example.election
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CandidateAdapter(val candidateList : List<Candidate>, val context: Context) : RecyclerView.Adapter<CandidateAdapter.CandidateViewHolder>()  {
+class CandidateAdapter(private val candidateList : List<Candidate>, val context: Context) : RecyclerView.Adapter<CandidateAdapter.CandidateViewHolder>()  {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CandidateViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.candidate_layout,parent,false)
@@ -24,7 +26,6 @@ class CandidateAdapter(val candidateList : List<Candidate>, val context: Context
             candidatePost.text = candidateList[position].post
         }
         holder.bind(candidateList[position])
-
 
     }
 

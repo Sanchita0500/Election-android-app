@@ -17,13 +17,13 @@
             android:padding="4dp">
 
             <ImageView
-                android:id="@+id/personImageView"
+                android:id="@+id/candidateImageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 tools:src="@drawable/vote_button"/>
 
             <TextView
-                android:id="@+id/personName"
+                android:id="@+id/candidateName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Candidate Name"

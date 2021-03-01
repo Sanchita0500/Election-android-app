@@ -15,16 +15,17 @@ class ApplyPostActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val username = intent.getStringExtra("name")
-        val post = intent.getStringExtra("post")
+        val post  = intent.getStringExtra("post")
 
         binding.name.text=username
         binding.post.text=post
 
         binding.applyButton.setOnClickListener {
-            val intent = Intent(this,CandidateFragment::class.java)
+            val intent = Intent(this,CandidatesActivity::class.java)
             intent.putExtra("name",username)
             intent.putExtra("post",post)
             startActivity(intent)
+            finish()
         }
     }
 }
