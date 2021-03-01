@@ -6,9 +6,9 @@ It is an election app which shows list of candidates and gives an option to the 
 Media service is also implemented that is the music would keep playing in background even if the app is closed
 
 ## List of Views/Layouts Implemented:
-Login and Register 
-Drawer Layout
-Confetti drop
-Music play and pause
-List View
-Recycler View
+* Login and Register 
+* Drawer Layout
+* Confetti drop
+* Music play and pause
+* List View
+* Recycler View
